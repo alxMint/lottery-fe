@@ -86,7 +86,7 @@ async function handleClick()
         <form onSubmit={handleSubmit}>
             <h4>Vuoi tentare la fortuna?</h4>
             <div>
-              <label>Valore di ether da inserire</label>
+              <label>Quota di partecipazione in ether </label>
                 <input
                   value={value}
                   onChange={(event) => setValue(event.target.value) }
