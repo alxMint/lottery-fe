@@ -32,7 +32,7 @@ function App()
 
     const accounts = await web3.eth.getAccounts();
 
-    setMessage("Waiting on transaction success...");
+    setMessage("Transazione in corso...");
 
     await lottery.methods.enter().send
     ({
@@ -41,7 +41,7 @@ function App()
       data: web3.eth.abi.encodeFunctionSignature("enter()")
     });
 
-    setMessage("You have been entered!");
+    setMessage("Partecipazione inserita!");
   }
 
 
@@ -50,7 +50,7 @@ async function handleClick()
   {
     const accounts = await web3.eth.getAccounts();
 
-    setMessage("Waiting on transaction success...");
+    setMessage("Transazione in corso...");
 
     await lottery.methods.pickWinner().send({
       from: accounts[0],
@@ -63,7 +63,7 @@ async function handleClick()
 
     console.log("last winner >> " + lastWinner);
 
-    let message = 'A winner has been picked > ';
+    let message = `Il vincitore e' stato estratto > `;
     message+=lastWinner;
 
 
@@ -77,29 +77,29 @@ async function handleClick()
       <div>
         <h2>Lottery Contract</h2>
         <p>
-          This contract is managed by {manager}.
-          There are currently {" "}{players.length} people entered,
-          competing to win{" "} {web3.utils.fromWei(balance, 'ether')} ether!
+          Il contratto e' gestito da {manager}.
+          Al momento ci sono {" "}{players.length} partecipanti,
+          che competono per vincire {" "} {web3.utils.fromWei(balance, 'ether')} ether.
         </p>
         <hr />
 
         <form onSubmit={handleSubmit}>
-            <h4>Want to try your luck?</h4>
+            <h4>Vuoi tentare la fortuna?</h4>
             <div>
-              <label>Amount of ether to enter</label>
+              <label>Valore di ether da inserire</label>
                 <input
                   value={value}
                   onChange={(event) => setValue(event.target.value) }
                 />
             </div>
-            <button>Enter</button>
+            <button>Inserisci</button>
 
         </form>
 
         <hr />
 
-        <h4>Ready to pick a winner?</h4>
-        <button onClick={handleClick}>Pick a winner!</button>
+        <h4>Pronto ad estrarre un vincitore?</h4>
+        <button onClick={handleClick}>Estrai vincitore</button>
 
         <hr />
 

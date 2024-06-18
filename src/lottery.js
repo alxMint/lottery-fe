@@ -1,6 +1,6 @@
 import web3 from "./web3";
 
-const address = "0xE95D21e883C202f237B5f6eC521Cb4544898ba93";
+const address = "0xD9c47F921044882af1ea4213e3174993207E7aB1";
 
 const abi = [
   { inputs: [], stateMutability: "nonpayable", type: "constructor" },
